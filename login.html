@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <meta charset = "utf-8">
+        <title> AutoSpa </title>
+        
+        <script src = javascript/formularioLogin.js></script>
+
+       
+        <link rel = "stylesheet" href = "css/login.css">
+
+
+    </head>
+
+    <body background="imagenes/Login/loginFondo.png"> 
+        <h1>AutoSpa</h1>
+    <hr>            
+
+            <div id = "iniciarSesion">
+                <h2>Iniciar Sesión</h2>
+
+                <form id = "formulario">
+                
+                    <input type = "text" name = "nombre" placeholder="Nombre de Usuario" required>
+
+                    <input type = "password" name = "contraseña" placeholder="Contraseña" required>
+                                    
+                    <a onclick=login()>Iniciar Sesión</a> 
+
+                    <p id = "usuarioInvalido">Usuario inválido</p>
+                    <p id = "contraseñaInvalida">Contraseña no válida</p>
+
+                    
+                </form>
+
+            </div>
+        
+
+        <div id = "info">
+                <label id = "informacion">  Grupo 4 - Especificación y Verificación de Software </label>
+        </div>
+
+       
+    </body>
+
+
+
+
+
+</html>
