@@ -37,7 +37,7 @@ function validarDatos(user,pass)
         errorPassword.style.display = "none";
 
         alert("¡Bienvenido " + nombreUsuario + "!" );
-       // window.location = "index.html";    
+        window.location = "productos.html";    
     }
     
 }
