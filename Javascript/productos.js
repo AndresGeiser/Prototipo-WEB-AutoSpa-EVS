@@ -38,7 +38,7 @@ function mostrarDetalles(seleccionado) {
 
         var aviso = seleccionado.parentElement.parentElement; //Nos devuelve el elemento que contiene al aviso 
 
-        if(producto.id == productos.id) {
+        if(producto.id == aviso.id) {
         
             foto.src = producto.foto;
             info.innerHTML = `
