@@ -1,51 +1,43 @@
 <!DOCTYPE html>
-
-<html lang="es">
-    <head>
-        <meta charset = "utf-8">
-        <title> AutoSpa </title>
-        
-        <script src = javascript/formularioLogin.js></script>
-
-       
-        <link rel = "stylesheet" href = "css/login.css">
-
-
-    </head>
-
-    <body background="imagenes/Login/loginFondo.png"> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascotas - Login</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="javascript/login.js"></script>
+    <link rel = "stylesheet" href = "css/login.css">
+</head>
+<body>
+    <header>
         <h1>AutoSpa</h1>
-    <hr>            
+    </header>
+    <main>  
+        <form>
+            <h1>Iniciar Sesión</h1>
 
-            <div id = "iniciarSesion">
-                <h2>Iniciar Sesión</h2>
-
-                <form id = "formulario">
-                
-                    <input type = "text" name = "nombre" placeholder="Nombre de Usuario" required>
-
-                    <input type = "password" name = "contraseña" placeholder="Contraseña" required>
-                                    
-                    <a onclick=login()>Iniciar Sesión</a> 
-
-                    <p id = "usuarioInvalido">Usuario inválido</p>
-                    <p id = "contraseñaInvalida">Contraseña no válida</p>
-
-                    
-                </form>
-
+            <div class="cont_email">
+                <input type="text" name="email" id="email" placeholder="E-mail">
+                <p id="mensaje_email"></p>
             </div>
-        
 
-        <div id = "info">
-                <label id = "informacion">  Grupo 4 - Especificación y Verificación de Software </label>
-        </div>
+            <div class="cont_password">
+                <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña">
+                <p id="mensaje_pw"></p>
+            </div>
 
-       
-    </body>
+            <div class="cont_btn">
+                <button id="registrarse" onclick="login(event)">Iniciar Sesión</button>
+            </div>
 
+            <p id="mensaje_usuario"></p>
+            
+        </form>
+    </main>
 
-
-
+    <footer>
+        <p>Grupo 4 - Especificación y Verificación de Software</p>
+    </footer>
+</body>
 
 </html>
