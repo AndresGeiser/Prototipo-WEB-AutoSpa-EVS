@@ -45,15 +45,29 @@ function mostrarDetalles(seleccionado) {
             <p><b>Precio:</b> ${servicio.precio}.</p><br>
             <p><b>Descripción:</b> ${servicio.descripcion}.</p><br>
 
-            <select name="medioPago" id="medioPago">
-                <option value="NoEspecificado">Seleccione un medio de pago</option>
-                <option value="TarjetaCredito">Tarjeta de Crédito</option>
-                <option value="Transferencia">Transferencia</option>
-                <option value="MercadoPago">Mercado Pago</option>
+            <p><b>Medio de pago:</b>
 
+                <select name="medioPago" id="medioPago">
+                    <option value="NoEspecificado">Seleccione un medio de pago</option>
+                    <option value="TarjetaCredito">Tarjeta de Crédito</option>
+                    <option value="Transferencia">Transferencia</option>
+                    <option value="MercadoPago">Mercado Pago</option>
+                </select>
+            </p><br>  
+
+            <p><b>Taller:</b>
+
+            <select name="taller" id="taller">
+                <option value="NoEspecificado">No especificado</option>
+                <option value="Taller1">San Martín</option>
+                <option value="Taller2">Urquiza</option>
+                <option value="Taller3">Zárate</option>
+                <option value="Taller4">Tigre</option>
+                <option value="Taller5">Beccar</option>
             </select>
+        </p><br>
 
-            <button onclick="mostrarDetalles(this)">Reservar</button>
+            <button onclick="procesarReserva(placeholder)">Reservar</button>
 
             `;
         }
@@ -66,3 +80,20 @@ function cerrarVentana() {
     document.querySelector('.cont_ventana').style.visibility = "hidden";
 }
 
+function procesarReserva(seleccionado)
+{
+    var medio = $("#medioPago :selected").text();
+    var taller = $("#taller :selected").text();
+
+    //Validación de reservas
+    if(medio != "Seleccione un medio de pago" && taller != "No especificado" )
+    {
+        //Reserva exitosa (Aún no se tiene en cuenta la fecha)
+    }
+    else if ( medio = "Seleccione un medio de pago")
+    {
+        //Mostrar mensaje de error "Seleccione un medio de pago"
+    }
+
+
+}
