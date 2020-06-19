@@ -135,6 +135,14 @@
     align-items: center;
 }
 
+.error {
+    color: red;
+}
+
+.valida {
+    color: green;
+}
+
 /* Ventana de detalles de los avisos */
 .cont_ventana {
     width: 100%;

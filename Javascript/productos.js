@@ -46,7 +46,7 @@ function mostrarDetalles(seleccionado) {
             <p><b>Precio:</b> ${producto.precio}.</p><br>
             <p><b>Descripción:</b> ${producto.descripcion}.</p><br>
             <p><b>Deposito:</b> ${producto.ubicacionDepo}.</p><br>
-            <p><b>Stock:</b> ${producto.stock} unidades.</p><br>
+            <p><b>Stock:</b> <span class='stock'>${producto.stock}</span> unidades.</p><br>
 
             <p><b>Medio de pago:</b>
 
@@ -55,13 +55,16 @@ function mostrarDetalles(seleccionado) {
                     <option value="TarjetaCredito">Tarjeta de Crédito</option>
                     <option value="Transferencia">Transferencia</option>
                     <option value="MercadoPago">Mercado Pago</option>
-
                 </select>
-            </p><br>    
+            </p>
+            <p id="mensaje_medio" class='error'></p><br>
 
-            <p><b>Cantidad:</b>  <input id="cantidad" type="number" value="1" min= "1" > </p><br>
+            <p><b>Cantidad:</b><br>
+            <input id="cantidad" type="number" value="1" min= "1" > </p>
+            <p id="mensaje_cantidad" class='error'></p><br>
 
-            <button onclick="procesarCompra(${producto.stock})">Comprar</button>
+            <button onclick="procesarCompra(${producto.stock})">Comprar</button><br>
+            <p id="mensaje_compra" class='valida'></p><br>
             `;
         }
      });
@@ -75,24 +78,42 @@ function cerrarVentana() {
 
 function procesarCompra(seleccionado)
 {
-  var eleccion = $("#medioPago :selected").text();
-  const cantidad = document.querySelector('#cantidad');;
+    var stock = document.querySelector('.ventana .stock').textContent;
 
-  //Validación de Compra
-  if(eleccion != "Seleccione un medio de pago" && cantidad.value > 0 )
-  {
-      //Mostrar ventana de compra exitosa
-  }
-  else if (eleccion = "Seleccione un medio de pago")
-  {
-      //Mostrar mensaje de error "Seleccione un medio de pago"
-  }
+    var eleccion = $("#medioPago :selected").text();
+    var cantidad = document.querySelector('#cantidad').value;
 
-  if (cantidad.value > seleccionado)
-  {
-      //Mostrar mensaje de error "La cantidad seleccionada supera el stock del producto"
-  }
+    var mensaje_cantidad = document.querySelector('#mensaje_cantidad');
+    var mensaje_medio = document.querySelector('#mensaje_medio');
+    var mensaje_compra = document.querySelector('#mensaje_compra');
 
+    //Parseamos a int ambos para compararlos
+    stock = parseInt(stock, 10);
+    cantidad = parseInt(cantidad, 10);
+    
+    //Validación de Compra
+    if(eleccion != "Seleccione un medio de pago" && cantidad <= stock) {
+        mensaje_compra.textContent = 'La compra se ha realizado de manera exitosa.';
+        mensaje_cantidad.textContent = '';
+        mensaje_medio.textContent = '';
 
+    }
+    else if (eleccion != "Seleccione un medio de pago" && cantidad > stock) {
+        mensaje_cantidad.textContent = 'La cantidad ingresada supera el stock del producto.';
+        mensaje_medio.textContent = '';
+
+    }
+    else if (eleccion = "Seleccione un medio de pago" && cantidad <= stock) {
+      
+        mensaje_cantidad.textContent = '';
+        mensaje_medio.textContent = 'Seleccione un medio de pago.';
+
+    }
+    else if (eleccion = "Seleccione un medio de pago" && cantidad > stock) {
+        mensaje_cantidad.textContent = 'La cantidad supera stock.';
+        mensaje_medio.textContent = 'Seleccione un medio de pago.';
+    }
 
 }
+
+
