@@ -19,7 +19,6 @@ function login(event) {
 
         if(validarUsuario(email, password) == true) {
 
-            alert("¡Bienvenido!");
             window.location = "productos.html"; 
         }
     }
