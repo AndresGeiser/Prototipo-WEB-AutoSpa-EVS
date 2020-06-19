@@ -77,7 +77,7 @@
 
 .contenedor .productos .producto {
     width: 185px;
-    height: 280px;
+    height: 280; 
     background: white;
     font: 100% sans-serif;
     border-radius: 30px;

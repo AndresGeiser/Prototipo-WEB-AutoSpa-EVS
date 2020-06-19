@@ -44,6 +44,17 @@ function mostrarDetalles(seleccionado) {
             <p><b>Nombre:</b> ${servicio.nombre}.</p><br>
             <p><b>Precio:</b> ${servicio.precio}.</p><br>
             <p><b>Descripción:</b> ${servicio.descripcion}.</p><br>
+
+            <select name="medioPago" id="medioPago">
+                <option value="NoEspecificado">Seleccione un medio de pago</option>
+                <option value="TarjetaCredito">Tarjeta de Crédito</option>
+                <option value="Transferencia">Transferencia</option>
+                <option value="MercadoPago">Mercado Pago</option>
+
+            </select>
+
+            <button onclick="mostrarDetalles(this)">Reservar</button>
+
             `;
         }
      });

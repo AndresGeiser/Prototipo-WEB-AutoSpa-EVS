@@ -47,7 +47,21 @@ function mostrarDetalles(seleccionado) {
             <p><b>Descripción:</b> ${producto.descripcion}.</p><br>
             <p><b>Deposito:</b> ${producto.ubicacionDepo}.</p><br>
             <p><b>Stock:</b> ${producto.stock} unidades.</p><br>
-            <p><b>Categoria:</b> ${producto.categoria}.</p><br>
+
+            <p><b>Medio de pago:</b>
+
+                <select name="medioPago" id="medioPago">
+                    <option value="NoEspecificado">Seleccione un medio de pago</option>
+                    <option value="TarjetaCredito">Tarjeta de Crédito</option>
+                    <option value="Transferencia">Transferencia</option>
+                    <option value="MercadoPago">Mercado Pago</option>
+
+                </select>
+            </p><br>    
+
+            <p><b>Cantidad:</b>  <input id="cantidad" type="number" value="1" min= "1" > </p><br>
+
+            <button onclick="procesarCompra()">Comprar</button>
             `;
         }
      });
@@ -59,3 +73,11 @@ function cerrarVentana() {
     document.querySelector('.cont_ventana').style.visibility = "hidden";
 }
 
+function procesarCompra()
+{
+
+
+
+
+    
+}
