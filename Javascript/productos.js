@@ -61,7 +61,7 @@ function mostrarDetalles(seleccionado) {
 
             <p><b>Cantidad:</b>  <input id="cantidad" type="number" value="1" min= "1" > </p><br>
 
-            <button onclick="procesarCompra()">Comprar</button>
+            <button onclick="procesarCompra(${producto.stock})">Comprar</button>
             `;
         }
      });
@@ -73,11 +73,26 @@ function cerrarVentana() {
     document.querySelector('.cont_ventana').style.visibility = "hidden";
 }
 
-function procesarCompra()
+function procesarCompra(seleccionado)
 {
+  var eleccion = $("#medioPago :selected").text();
+  const cantidad = document.querySelector('#cantidad');;
+
+  //Validación de Compra
+  if(eleccion != "Seleccione un medio de pago" && cantidad.value > 0 )
+  {
+      //Mostrar ventana de compra exitosa
+  }
+  else if (eleccion = "Seleccione un medio de pago")
+  {
+      //Mostrar mensaje de error "Seleccione un medio de pago"
+  }
+
+  if (cantidad.value > seleccionado)
+  {
+      //Mostrar mensaje de error "La cantidad seleccionada supera el stock del producto"
+  }
 
 
 
-
-    
 }
