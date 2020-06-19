@@ -40,9 +40,14 @@ function emailEsValido(email) {
 
     var mensaje_email  = document.getElementById("mensaje_email");
 
-    //Expresion regular de un email
-    var expReg= /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
-    var espacios = /\s/;
+    //Verificamos si el email es uno registrado
+    var existe = false;
+    usuarios.forEach(usuario => {
+        if(usuario.email == email.value) {
+            existe = true;
+            return;
+        }
+    });
 
     if(email.value == "") {
         mensaje_email.textContent = "No has ingresado un email.";
@@ -50,8 +55,8 @@ function emailEsValido(email) {
 
         return false;
 
-    } else if (expReg.test(email.value) == false || espacios.test(email.value)) {
-        mensaje_email.textContent = "Ingrese un email valido.";
+    } else if (existe == false) {
+        mensaje_email.textContent = "El email no se encuentra registrado.";
         email.classList.add("invalido");
 
         return false;
@@ -69,8 +74,8 @@ function contraseñaEsValida(password) {
     var mensaje_pw  = document.getElementById("mensaje_pw");
     
     //Chequeamos mediante expresiones regulares que la contraseña tenga al menos
-    //8 caracteres, 1 minúscula, 1 mayúscula, 1 numero y que no contenga espacios ni tabs
-    var regex  = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    //8 caracteres, 1 numero, 1 letra y que no contenga espacios ni tabs
+    var regex  = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     var espacios = /\s/;
 
     if(password.value == "") {
