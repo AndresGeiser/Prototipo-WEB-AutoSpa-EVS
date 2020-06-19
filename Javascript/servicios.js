@@ -54,8 +54,10 @@ function mostrarDetalles(seleccionado) {
                     <option value="MercadoPago">Mercado Pago</option>
                 </select>
             </p><br>  
+            <p id="mensaje_medio" class='error'></p><br>
 
-            <p><b>Taller:</b>
+
+            <p><b>Taller:</b><br>
 
             <select name="taller" id="taller">
                 <option value="NoEspecificado">No especificado</option>
@@ -65,9 +67,35 @@ function mostrarDetalles(seleccionado) {
                 <option value="Taller4">Tigre</option>
                 <option value="Taller5">Beccar</option>
             </select>
-        </p><br>
+            </p><br>
+            <p id="mensaje_taller" class='error'></p><br>
 
-            <button onclick="procesarReserva(placeholder)">Reservar</button>
+            <p><b>Fecha:</b><br>
+
+         <div class = "fechaCont" id = "fechaCont">    
+            <select name="fecha" id="fecha">
+            <option value="NoEspecificado">No especificado</option>
+            <option value="Fecha1">19/06/2020</option>
+            <option value="Fecha2">25/06/2020</option>
+            <option value="Fecha3">28/06/2020</option>
+            </select>
+            </p><br>
+            <p id="mensaje_fecha" class='error'></p><br>
+        </div>   
+
+
+            <p><b>Vehiculo:</b><br>
+            <select name="automovil" id="automovil">
+            <option value="NoEspecificado">No especificado</option>
+            <option value="Automovil1">Corsa Wagon 2008</option>
+            <option value="Automovil2">Renault Clio 2009</option>
+            </select>
+            <p id="mensaje_automovil" class='error'></p><br>
+
+
+            <button onclick="procesarReserva()">Reservar</button>
+            <p id="mensaje_reserva" class='valida'></p><br>
+
 
             `;
         }
@@ -80,19 +108,45 @@ function cerrarVentana() {
     document.querySelector('.cont_ventana').style.visibility = "hidden";
 }
 
-function procesarReserva(seleccionado)
+function procesarReserva()
 {
     var medio = $("#medioPago :selected").text();
     var taller = $("#taller :selected").text();
+    var fecha = $("#fecha :selected").text();
+    var vehiculo = $("#automovil :selected").text();
+
+
+    var mensaje_taller = document.querySelector('#mensaje_taller');
+    var mensaje_medio = document.querySelector('#mensaje_medio');
+    var mensaje_reserva = document.querySelector('#mensaje_reserva');
+    var mensaje_automovil = document.querySelector('#mensaje_automovil');
+
+
+
 
     //Validación de reservas
     if(medio != "Seleccione un medio de pago" && taller != "No especificado" )
     {
-        //Reserva exitosa (Aún no se tiene en cuenta la fecha)
+        mensaje_reserva.textContent = 'La reserva se ha realizado correctamente';
+
+        mensaje_taller.textContent = '';
+        mensaje_automovil.textContent = '';
+        mensaje_medio.textContent = '';
+
     }
     else if ( medio = "Seleccione un medio de pago")
     {
-        //Mostrar mensaje de error "Seleccione un medio de pago"
+        mensaje_reserva.textContent = '';
+
+        mensaje_medio.textContent = 'Seleccione un medio de pago';
+
+    }
+    else if ( medio = "Seleccione un medio de pago" && taller == "No especificado") //No lo toma
+    {
+        mensaje_reserva.textContent = '';
+        mensaje_taller.textContent = 'Seleccione taller';
+
+
     }
 
 
