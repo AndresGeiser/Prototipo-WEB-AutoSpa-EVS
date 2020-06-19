@@ -247,3 +247,16 @@
     background:royalblue;
     color: white;
 }
+
+.cont_ventana .ventana .contenido .cont_info .info button 
+{
+    width: 75%;
+    height: 10%;
+    background-color: royalblue;
+    color: white;
+    border: 1px;
+}
+
+.cont_ventana .ventana .contenido .cont_info .info button:hover{
+    background: rgb(23, 8, 233);
+} 
