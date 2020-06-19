@@ -101,17 +101,20 @@ function procesarCompra(seleccionado)
     else if (eleccion != "Seleccione un medio de pago" && cantidad > stock) {
         mensaje_cantidad.textContent = 'La cantidad ingresada supera el stock del producto.';
         mensaje_medio.textContent = '';
+        mensaje_compra.textContent = '';
 
     }
     else if (eleccion = "Seleccione un medio de pago" && cantidad <= stock) {
       
         mensaje_cantidad.textContent = '';
+        mensaje_compra.textContent = '';
         mensaje_medio.textContent = 'Seleccione un medio de pago.';
 
     }
     else if (eleccion = "Seleccione un medio de pago" && cantidad > stock) {
         mensaje_cantidad.textContent = 'La cantidad supera stock.';
         mensaje_medio.textContent = 'Seleccione un medio de pago.';
+        mensaje_compra.textContent = '';
     }
 
 }
