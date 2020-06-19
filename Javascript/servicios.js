@@ -12,6 +12,9 @@ function cargarServicios(servicios) {
 
         publicaciones.innerHTML +=` 
         <div class="servicio" id="${servicio.id}" >
+        <figure>
+            <img src="${servicio.foto}" alt="Servicio">
+        </figure>
         <div class="datos">
             <h3>${servicio.nombre}</h3>
             <h4>${servicio.precio}</h4>
@@ -36,6 +39,7 @@ function mostrarDetalles(seleccionado) {
 
         if(servicio.id == aviso.id) {
         
+            foto.src = servicio.foto;
             info.innerHTML = `
             <p><b>Nombre:</b> ${servicio.nombre}.</p><br>
             <p><b>Precio:</b> ${servicio.precio}.</p><br>
