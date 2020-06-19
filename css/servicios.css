@@ -245,3 +245,11 @@
 .cont_ventana .ventana .contenido .cont_info .info .fechaCont{
     visibility: hidden;
 }
+
+.error {
+    color: red;
+}
+
+.valida {
+    color: green;
+}

@@ -122,9 +122,7 @@ function procesarReserva()
     var mensaje_automovil = document.querySelector('#mensaje_automovil');
     var mensaje_fecha = document.querySelector('#mensaje_fecha');
 
-
-
-
+    mensaje_reserva.textContent = '';
 
     //Validación de reservas
     if(medio != "Seleccione un medio de pago" && taller != "No especificado"  && fecha != "No especificado" && vehiculo != "No especificado")
@@ -134,45 +132,48 @@ function procesarReserva()
         mensaje_taller.textContent = '';
         mensaje_automovil.textContent = '';
         mensaje_medio.textContent = '';
+        mensaje_fecha.textContent = '';
 
     }
+
     if ( medio == "Seleccione un medio de pago" )
     {
-        mensaje_reserva.textContent = '';
-
+        
         mensaje_medio.textContent = 'Seleccione un medio de pago';
+    } else {
+        
+        mensaje_medio.textContent = '';
+    }
 
-    }
-    if ( taller == "No especificado")
-    {
+    if ( taller == "No especificado") {
         mensaje_taller.textContent = 'Seleccione un taller';
+
+    } else {
+        mensaje_taller.textContent = '';
     }
+
     if( taller != "No especificado" && fecha == "No especificado" ){
         mensaje_fecha.textContent = 'Ingrese una fecha';
-    }
+    } 
+
     if( vehiculo == "No especificado"){
         mensaje_automovil.textContent = 'Ingrese un vehiculo';
+    } else {
+        mensaje_automovil.textContent = '';
     }
 
 }
 
 
 
-function actualizarFecha(){
+function actualizarFecha() {
     var taller = $("#taller :selected").text();
 
-
-
-    if(taller != "No especificado"){
+    if(taller != "No especificado") {
         document.querySelector('.fechaCont').style.visibility = "visible";   
 
-    }
-    else{
+    } else {
         document.querySelector('.fechaCont').style.visibility = "hidden";   
 
     }
-
-
-
-
 }
