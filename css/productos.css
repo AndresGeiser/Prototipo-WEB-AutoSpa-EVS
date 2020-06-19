@@ -2,7 +2,7 @@
 	margin: 0;
 	padding: 0;
 }
-
+ 
 .contenedor {
     width: 100%;
     display: grid;
@@ -48,16 +48,23 @@
     color: rgb(36, 228, 19);
 }
 
- 
-.contenedor aside {
-    width: 100%;
-    margin-bottom: 20px;
-    margin-top: 20px;
+.contenedor .menu  { 
+    background: brown;
     display: flex;
-    justify-content: center;
+    font-family: sans-serif ;
 }
 
-
+.contenedor .menu a {
+    color: white;
+    text-decoration: none;
+    font: 100% sans-serif;
+    font-size: 20px;
+    padding: 10px 50px; 
+}
+.contenedor .menu a:hover
+{
+    background: rgb(207, 82, 82);
+}
 
 .contenedor .productos {
     width: 100%;
