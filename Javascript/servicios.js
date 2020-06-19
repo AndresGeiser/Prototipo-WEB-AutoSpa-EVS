@@ -59,7 +59,7 @@ function mostrarDetalles(seleccionado) {
 
             <p><b>Taller:</b><br>
 
-            <select name="taller" id="taller">
+            <select name="taller" id="taller" onchange = "actualizarFecha()">
                 <option value="NoEspecificado">No especificado</option>
                 <option value="Taller1">San Martín</option>
                 <option value="Taller2">Urquiza</option>
@@ -70,9 +70,9 @@ function mostrarDetalles(seleccionado) {
             </p><br>
             <p id="mensaje_taller" class='error'></p><br>
 
-            <p><b>Fecha:</b><br>
 
-         <div class = "fechaCont" id = "fechaCont">    
+         <div class = "fechaCont" id = "fechaCont">   
+         <p><b>Fecha:</b><br>    
             <select name="fecha" id="fecha">
             <option value="NoEspecificado">No especificado</option>
             <option value="Fecha1">19/06/2020</option>
@@ -148,6 +148,27 @@ function procesarReserva()
 
 
     }
+
+
+}
+
+
+
+function actualizarFecha(){
+    var taller = $("#taller :selected").text();
+
+
+
+    if(taller != "No especificado"){
+        document.querySelector('.fechaCont').style.visibility = "visible";   
+
+    }
+    else{
+        document.querySelector('.fechaCont').style.visibility = "hidden";   
+
+    }
+
+
 
 
 }

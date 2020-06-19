@@ -241,3 +241,7 @@
     background:royalblue;
     color: white;
 }
+
+.cont_ventana .ventana .contenido .cont_info .info .fechaCont{
+    visibility: hidden;
+}
